@@ -4,7 +4,7 @@
   tasks:
   - name: Create workstation inventory
     add_host:
-       name: "workstation-a1ce.rhpds.opentlc.com"
+       name: "workstation-{{OSP_GUID}}.rhpds.opentlc.com"
        group: workstation
 
 
@@ -14,4 +14,6 @@
     - setup-workstation
 
 - import_playbook: site-install-isolated-node.yml 
+- import_playbook: site-osp-instances.yml
 
+- import_playbook: site-3tier-app.yml
