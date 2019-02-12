@@ -1,11 +1,14 @@
-- hosts: localhost
-  tasks:
-  - name: Create workstation inventory
-    add_host:
-       name: "workstation-{{OSP_GUID}}.rhpds.opentlc.com"
-       group: workstation
-
-- hosts: workstation
-  become: yes
-  roles:
+--- 
+- 
+  hosts: localhost
+  tasks: 
+    - 
+      add_host: 
+        group: workstation
+        name: "workstation-{{OSP_GUID}}.rhpds.opentlc.com"
+      name: "Create workstation inventory"
+- 
+  become: true
+  hosts: workstation
+  roles: 
     - osp-servers
